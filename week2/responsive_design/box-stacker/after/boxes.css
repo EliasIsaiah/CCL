@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    display: flex;
+    border: thick solid black;
+    width: 25vh;
+    height: 25vh;
+    background-color: yellow;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        align-items: center;
+        flex-direction:column;
+    }
+
+    .box {
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+}
