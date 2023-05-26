@@ -1,0 +1,12 @@
+body {
+    background-color: purple;
+    color: greenyellow;
+}
+
+div.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    margin: auto;
+}
