@@ -44,8 +44,12 @@ function generatePassword(length, hasSpecialChars, containsNumbers) {
         // Index is a NUMBER
         // NUMBERS can be randomized with Javascript's math library
 
+        // let possibleCharacters = ["a","b","c","1","2","3","?","-","="];
+        let possibleCharacters = ["a","b","c"];
+
         for (i = 0; i > length; i++) {
             const randomIndex = Math.floor(Math.random() * possiblePasswordChars.length);
+            password.push(possiblePasswordChars[randomIndex]);
         }
 
 
