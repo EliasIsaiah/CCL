@@ -7,7 +7,7 @@
   * color
   * underline
   * strikethrough
-  * uppercase and lowercase
+  * uppercase and lowercase ✅
 * paragraphs
 * text-justification
   * center
