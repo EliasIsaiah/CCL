@@ -8,3 +8,15 @@ function convertToUppercase(string) {
 function convertToLowercase(string) {
     return string.toLowerCase();
 }
+
+function makeItalic(string) {
+    return "<i>"+string+"</i>";
+}
+
+function makeAParagraph(string) {
+    return "<p>"+string+"</p>";
+}
+
+function makeAnHtmlElementWithText(startingTag,text,endingTag) {
+    return startingTag+text+endingTag;
+}
