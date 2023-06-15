@@ -25,13 +25,14 @@ function createThreeItemList(listItemsArray) {
     return `<ul><li>${listItemsArray[0]}</li><li>${listItemsArray[1]}</li><li>${listItemsArray[2]}</li></ul>`
 }
 
-function createItemList(listItems) {
+function createList(createOrderedList,listItems) {
     listMarkupString = "";
     for (item of listItems) {
         let listItem = `<li>${item}</li>`;
         listMarkupString += listItem;
     }
-    return "<ul>" + listMarkupString + "</ul>";  
+    if(createOrderedList) return "<ol>" + listMarkupString + "</ol>";  
+    if(!createOrderedList) return "<ul>" + listMarkupString + "</ul>";  
 }
 
 // <ul>
