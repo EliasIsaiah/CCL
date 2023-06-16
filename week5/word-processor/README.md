@@ -2,8 +2,8 @@
 
 ## The modern word processor has a bunch of functions, including but not limited to:
 * font mutations
-  * italicizing
-  * emboldening (making bold)
+  * italicizing ✅
+  * emboldening (making bold) ✅
   * color
   * underline
   * strikethrough
@@ -13,6 +13,6 @@
   * center
   * left
   * right
-* ordered and unordered lists
+* ordered and unordered lists ✅
 * tables
 * spellcheck
