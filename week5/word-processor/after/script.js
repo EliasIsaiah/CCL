@@ -1,6 +1,8 @@
 // function: convert string into uppercase
 // function: convert string into lowercase
 
+let webpage = document.getElementById("webpage");
+
 function convertToUppercase(string) {
     return string.toUpperCase();
 }
@@ -10,36 +12,33 @@ function convertToLowercase(string) {
 }
 
 function makeItalic(string) {
-     return "<i>"+string+"</i>";
+    webpage.innerHTML += "<p><i>" + string + "</i></p>";
 }
 
 function makeAParagraph(string) {
-    return "<p>"+string+"</p>";
+    webpage.innerHTML += "<p>" + string + "</p>";
 }
 
-function makeAnHtmlElementWithText(startingTag,text,endingTag) {
-    return startingTag+text+endingTag;
+function makeAnHtmlElementWithText(startingTag, text, endingTag) {
+    webpage.innerHTML += startingTag + text + endingTag;
 }
 
 function createThreeItemList(listItemsArray) {
-    return `<ul><li>${listItemsArray[0]}</li><li>${listItemsArray[1]}</li><li>${listItemsArray[2]}</li></ul>`
+    webpage.innerHTML += `<ul><li>${listItemsArray[0]}</li><li>${listItemsArray[1]}</li><li>${listItemsArray[2]}</li></ul>`
 }
 
-function createList(createOrderedList,listItems, makeBold) {
+function createList(createOrderedList, listItems, makeBold) {
     listMarkupString = "";
     for (item of listItems) {
-        listItem = "";
+        let listItem = "";
         // if (makeBold) { // makeBold === true
         //     listItem = `<li><b>${item}</b></li>`; 
         // } else {
         //     listItem = `<li>${item}</li>`; 
         // }
-        let listItem = makeBold ? `<li><b>${item}</b></li>` : `<li>${item}</li>`;
+        listItem = makeBold ? `<li><b>${item}</b></li>` : `<li>${item}</li>`;
         listMarkupString += listItem;
     }
-    if(createOrderedList) return "<ol>" + listMarkupString + "</ol>";  
-    if(!createOrderedList) return "<ul>" + listMarkupString + "</ul>";  
+    if (createOrderedList) webpage.innerHTML += "<ol>" + listMarkupString + "</ol>";
+    if (!createOrderedList) webpage.innerHTML += "<ul>" + listMarkupString + "</ul>";
 }
-
-let webpage = document.getElementById("webpage");
-webpage.innerHTML = makeItalic("my my that's a-lovely pizza");
