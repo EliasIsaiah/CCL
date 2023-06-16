@@ -24,6 +24,12 @@ function makeAParagraph(string) {
 function makeAnHtmlElementWithText(startingTag, text, endingTag) {
     webpage.innerHTML += startingTag + text + endingTag;
 }
+function makeChildElement(elementString, text) {
+    // element string could be "p" or "div" or "span" etc.
+    let newElement = document.createElement(elementString)
+    newElement.innerText = text;
+    webpage.appendChild(newElement);
+}
 
 function createThreeItemList(listItemsArray) {
     webpage.innerHTML += `<ul><li>${listItemsArray[0]}</li><li>${listItemsArray[1]}</li><li>${listItemsArray[2]}</li></ul>`
