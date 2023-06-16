@@ -16,7 +16,9 @@ function makeItalic(string) {
 }
 
 function makeAParagraph(string) {
-    webpage.innerHTML += "<p>" + string + "</p>";
+    let newParagraph = document.createElement("p");
+    newParagraph.innerText = string;
+    webpage.appendChild(newParagraph);
 }
 
 function makeAnHtmlElementWithText(startingTag, text, endingTag) {
