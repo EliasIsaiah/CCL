@@ -22,22 +22,29 @@ const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 let possiblePasswordChars = [];
 
-possiblePasswordChars.concat(alphabet);
-
-let password = [];
 
 
-generatePassword(passwordLengthInput.value, specialCharCheckBox.value, containsNumbersCheckBox.value);
 
-function generatePassword(length, hasSpecialChars, containsNumbers) {
+// generatePassword(passwordLengthInput.value, specialCharCheckBox.value, containsNumbersCheckBox.value);
+
+// generatePassword(10, true, true);
+
+function generatePassword(length, hasSpecialChars, hasNumbers, hasAlphabet = true) {
+
+    let password = [];
+
     if (length > 0) {
 
-        if (hasSpecialChars === true) {
-            possiblePasswordChars.concat(specialCharacters);
+        if (hasAlphabet) {
+            possiblePasswordChars = possiblePasswordChars.concat(alphabet);
         }
 
-        if (containsNumbers) {
-            possiblePasswordChars.concat(numbers);
+        if (hasSpecialChars === true) {
+            possiblePasswordChars = possiblePasswordChars.concat(specialCharacters);
+        }
+
+        if (hasNumbers) {
+            possiblePasswordChars = possiblePasswordChars.concat(numbers);
         }
 
         // every element in an Array is identified by its Index
@@ -45,13 +52,13 @@ function generatePassword(length, hasSpecialChars, containsNumbers) {
         // NUMBERS can be randomized with Javascript's math library
 
         // let possibleCharacters = ["a","b","c","1","2","3","?","-","="];
-        let possibleCharacters = ["a","b","c"];
 
-        for (i = 0; i > length; i++) {
+        for (i = 0; i < length; i++) {
             const randomIndex = Math.floor(Math.random() * possiblePasswordChars.length);
             password.push(possiblePasswordChars[randomIndex]);
         }
 
+        console.log(password.join(""));
 
         // there's a pool of possible characters that a password
         // can consist of. 

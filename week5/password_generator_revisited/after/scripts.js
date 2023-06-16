@@ -9,7 +9,7 @@ function generatePassword(length, randomCase, includeSpecialChars) {
 
     for (i = 0; i < desiredPassordLength; i++) {
 
-        if (doSpecialCharacters) doSpecialCharacterInThisLoop = Math.random() > .5 
+        if (doSpecialCharacters) doSpecialCharacterInThisLoop = Math.random() > .5
 
         if (doSpecialCharacterInThisLoop) {
             let randomSpecialCharCode = randomIntFromInterval(33, 64);
@@ -20,7 +20,11 @@ function generatePassword(length, randomCase, includeSpecialChars) {
             let randomChar = String.fromCharCode(randomCharCode).toLowerCase();
 
             if (randomizeCharCase) {
-                if (Math.random() > .5) randomChar = randomChar.toUpperCase();
+                if (Math.random() > .5) {
+                    randomChar = String.fromCharCode(randomIntFromInterval(65, 90));
+                } else {
+                    randomChar = String.fromCharCode(randomIntFromInterval(97, 122));
+                }
             }
 
             generatedPassword.push(randomChar);
