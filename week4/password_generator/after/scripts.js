@@ -17,8 +17,11 @@ const specialCharCheckBox = document.getElementById("specialCharCheckbox");
 const containsNumbersCheckBox = document.getElementById("containsNumbersCheckbox");
 
 const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const upperCaseAlphabet = [];
 const specialCharacters = ["/", "-", "?", "+", "=", "`", "~"];
 const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+
+
 
 let possiblePasswordChars = [];
 
@@ -29,13 +32,14 @@ let possiblePasswordChars = [];
 
 // generatePassword(10, true, true);
 
-function generatePassword(length, hasSpecialChars, hasNumbers, hasAlphabet = true) {
+function generatePassword(length, hasSpecialChars, hasNumbers, hasAlphabet = true, randomizeCase) {
 
     let password = [];
 
     if (length > 0) {
 
         if (hasAlphabet) {
+
             possiblePasswordChars = possiblePasswordChars.concat(alphabet);
         }
 
@@ -69,6 +73,17 @@ function generatePassword(length, hasSpecialChars, hasNumbers, hasAlphabet = tru
         console.log("length must be greater than 0!");
         return;
     }
+}
+
+const numbersArray = [1, 2, 3, 10, 20, 30];
+
+numbers.filter(isEvenAndGreaterThanTen)
+numbers.filter(number => { number % 2 === 0 && number > 10 })
+
+function isEvenAndGreaterThanTen(number) {
+    let isEven = number % 2 === 0;
+    let isGreaterThanTen = number > 10;
+    return isEven && isGreaterThanTen;
 }
 
 
