@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    width: 90vh;
+}
+
+.container > input {
+    width: 100%;
+}
