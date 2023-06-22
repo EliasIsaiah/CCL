@@ -16,20 +16,33 @@ let meals = [{ "meal_name": "luctus et ultrices posuere cubilia curae duis fauci
 *  allergens
 */
 
+let quickMeals = meals.filter(meal => meal.time_prepared < 100);
+console.log(quickMeals);
 
-meals.forEach(meal => {
-    console.log(`this is the price of my meal: ${meal.price}`);
-})
+// meals.forEach(meal => {
+//     console.log(`this is the price of my meal: ${meal.price}`);
+//     console.log(`this is the price of my meal plus sales tax: ${applySalesTax(meal.price, .03)}`);
+// })
 
+// for (meal of meals) {
+//     let newPrice = applySalesTax(meal.price, .03);
+//     console.log("new price: " + newPrice);
+// }
+
+let mealsWithSalesTax = meals.map(applySalesTaxToMeal)
+
+function applySalesTaxToMeal(meal) {
+    meal.price = meal.price * 1.03
+}
 /**
  * @param {object} meal - The meal we want to calculate the taxed price of
  * 
  */
 
- SALES_TAX = .03; // +3% sales tax
+SALES_TAX = .03; // +3% sales tax
 
 function applySalesTax(price, tax) {
-    price + (price * tax);
+    return price + (price * tax);
 }
 // write a function that takes in a meal and computes the price + sales tax
 
