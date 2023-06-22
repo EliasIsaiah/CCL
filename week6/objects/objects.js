@@ -16,9 +16,22 @@ let meals = [{ "meal_name": "luctus et ultrices posuere cubilia curae duis fauci
 *  allergens
 */
 
+
 meals.forEach(meal => {
     console.log(`this is the price of my meal: ${meal.price}`);
 })
+
+/**
+ * @param {object} meal - The meal we want to calculate the taxed price of
+ * 
+ */
+
+ SALES_TAX = .03; // +3% sales tax
+
+function applySalesTax(price, tax) {
+    price + (price * tax);
+}
+// write a function that takes in a meal and computes the price + sales tax
 
 
 let people = [{ "id": 1, "first_name": "Rosita", "last_name": "Claeskens", "email": "rclaeskens0@typepad.com", "gender": "Female", "ip_address": "87.244.108.4" },
