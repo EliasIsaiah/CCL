@@ -4,6 +4,20 @@ let meals = [{ "meal_name": "luctus et ultrices posuere cubilia curae duis fauci
 { "meal_name": "lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus", "meal_type": "dinner", "cuisine": "Mexican", "ingredients": "bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce", "calories": 1763, "price": 42.39, "date_prepared": "5/22/2021", "time_prepared": 73, "spiciness_level": "medium", "allergens": "gluten" },
 { "meal_name": "sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla", "meal_type": "snack", "cuisine": "Indian", "ingredients": "curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis", "calories": 1806, "price": 16.48, "date_prepared": "3/2/2021", "time_prepared": 119, "spiciness_level": "hot", "allergens": "dairy" }]
 
+function getNotHotMeals(mealsArray) {
+    // return mealsArray.filter(filterOutHotMeals);
+    return mealsArray.filter(meal => meal.spiciness_level !== "hot");
+}
+
+function filterOutHotMeals(mealObject) {
+    return mealObject.spiciness_level !== "hot";
+}
+
+let filteredOutHotMeals = getNotHotMeals(meals);
+console.log(filteredOutHotMeals);
+
+// console.log(getNotHotMeals(meals));
+
 /* meal_name
 *  meal_type
 *  cuisine
@@ -16,8 +30,8 @@ let meals = [{ "meal_name": "luctus et ultrices posuere cubilia curae duis fauci
 *  allergens
 */
 
-let quickMeals = meals.filter(meal => meal.time_prepared < 100);
-console.log(quickMeals);
+// let quickMeals = meals.filter(meal => meal.time_prepared < 100);
+// console.log(quickMeals);
 
 // meals.forEach(meal => {
 //     console.log(`this is the price of my meal: ${meal.price}`);
@@ -29,10 +43,11 @@ console.log(quickMeals);
 //     console.log("new price: " + newPrice);
 // }
 
-let mealsWithSalesTax = meals.map(applySalesTaxToMeal)
+let salesTaxedMealPrices = meals.map(applySalesTaxToMeal)
+console.log(`salesTaxedMealPrices ${salesTaxedMealPrices}`);
 
 function applySalesTaxToMeal(meal) {
-    meal.price = meal.price * 1.03
+    return meal.price * 1.03
 }
 /**
  * @param {object} meal - The meal we want to calculate the taxed price of
