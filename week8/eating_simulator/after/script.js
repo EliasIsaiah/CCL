@@ -24,11 +24,17 @@
 
 let container = document.getElementById("container");
 
-let sandwichDiv = document.createElement("div");
-sandwichDiv.style.backgroundImage = "url('assets/images/sandwich.PNG')";
-sandwichDiv.style.backgroundSize = "cover";
-sandwichDiv.setAttribute("class", "dish");
-sandwichDiv.onclick = () => choose("sandwich");
+
+let dishesDiv = document.createElement("div");
+dishesDiv.setAttribute("class", "dishes");
+container.appendChild(dishesDiv);
+
+let messageDiv = document.createElement("div");
+messageDiv.setAttribute("class", "message");
+container.appendChild(messageDiv);
+messageDiv.innerText = "choose a dish to eat";
+
+let sandwichDiv = createDishDiv("sandwich","sandwich_image");
 
 let fishsticksDiv = document.createElement("div");
 fishsticksDiv.style.backgroundImage = "url('assets/images/fish_sticks.PNG')";
@@ -43,45 +49,68 @@ cakeDiv.setAttribute("class", "dish");
 cakeDiv.onclick = function () { choose("cake") }
 // () => choose("cake");
 
-container.appendChild(sandwichDiv);
-container.appendChild(cakeDiv);
-container.appendChild(fishsticksDiv);
+dishesDiv.appendChild(sandwichDiv);
+dishesDiv.appendChild(cakeDiv);
+dishesDiv.appendChild(fishsticksDiv);
 
 
-// const winSound = new Audio('assets/sounds/win.mp3');
-const baby = new Audio('assets/sounds/BabyCrying.mp3');
-// const audio = new Audio('KatyPerryFirework.mp3');
+const babySound = new Audio('assets/sounds/BabyCrying.mp3');
+const winSound = new Audio('assets/sounds/win.mp3');
+const animalSound = new Audio('assets/sounds/Farm-Animals.mp3');
 
-// function toggleSound() {
-//     if (winSound.paused) {
-//         winSound.play();
-//     } else {
-//         winSound.pause();
-//     }
-// }
+function createDishDiv(dishName, imageName) {
+    let sandwichDiv = document.createElement("div");
+    sandwichDiv.style.backgroundImage = `url('assets/images/${imageName}.PNG')`;
+    sandwichDiv.style.backgroundSize = "cover";
+    sandwichDiv.setAttribute("class", "dish");
+    sandwichDiv.onclick = () => choose(dishName);
+    return sandwichDiv;
+}
 
-// function toggleSoundThreeSeconds() {
-//     baby.play();
-//     setTimeout(function () {
-//         audio.pause();
-//     }, 1000); // Set timeout to pause after 3 seconds (3000 milliseconds)
-//     baby.currentTime = 0;
-// }
+function makeAnimalSound() {
+    animalSound.play();
+    setTimeout(() => animalSound.pause(), 3000);
+    animalSound.currentTime = 0;
+}
+
+function makeBabySound() {
+    babySound.play();
+    setTimeout(function () {
+        babySound.pause();
+    }, 3000); // Set timeout to pause after 3 seconds (3000 milliseconds)
+    babySound.currentTime = 0;
+}
+
+function makeWinSound() {
+    winSound.play();
+    setTimeout(function () {
+        winSound.pause();
+    }, 3000); // Set timeout to pause after 3 seconds (3000 milliseconds)
+    winSound.currentTime = 0;
+}
+
+function makeAnimalSound() {
+    animalSound.play();
+    setTimeout(function () {
+        animalSound.pause();
+    }, 3000); // Set timeout to pause after 3 seconds (3000 milliseconds)
+    animalSound.currentTime = 0;
+}
 
 function choose(dish) {
     // sandwich
     if (dish === "sandwich") {
         // win the game
-        // winSound.play();
-        // fish
+        makeWinSound();
     } else if (dish === "fish") {
         // lose the game
-        alert("you lose");
-        // cake
+        makeAnimalSound();
+        console.log("you lose");
     } else if (dish === "cake") {
         // lose the game
-        alert("you lose");
+        makeBabySound();
+        console.log("you lose");
     } else {
-        alert("how did you even get here");
+        console.log("how did you even get here");
     }
 }
