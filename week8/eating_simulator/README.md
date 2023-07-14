@@ -4,6 +4,7 @@
 * Dish A: a turkey sandwich
 * Dish B: a plate of fish sticks
 * Dish C: a slice of carrot cake
+- [x] hello
 
 each dish has a sugar gram count. you must choose the dish that has the lowest sugar content.
 

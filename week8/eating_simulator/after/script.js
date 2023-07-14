@@ -34,83 +34,62 @@ messageDiv.setAttribute("class", "message");
 container.appendChild(messageDiv);
 messageDiv.innerText = "choose a dish to eat";
 
-let sandwichDiv = createDishDiv("sandwich","sandwich_image");
+/**
+ * 
+ * @param {string} dishName 
+ * @param {string} imagePath 
+ * @returns {HTMLDivElement}
+ */
+function createDishDiv(dishName, imagePath) {
+    let dishDiv = document.createElement("div");
+    dishDiv.style.backgroundImage = `url('${imagePath}')`;
+    dishDiv.style.backgroundSize = "cover";
+    dishDiv.setAttribute("class", "dish");
+    dishDiv.onclick = () => choose(dishName);
+    return dishDiv;
+}
 
-let fishsticksDiv = document.createElement("div");
-fishsticksDiv.style.backgroundImage = "url('assets/images/fish_sticks.PNG')";
-fishsticksDiv.style.backgroundSize = "cover";
-fishsticksDiv.setAttribute("class", "dish");
-fishsticksDiv.onclick = () => choose("fish");
+let sandwichDiv = createDishDiv("sandwich","assets/images/sandwich.PNG");
+let fishsticksDiv = createDishDiv("fish","assets/images/fish_sticks.PNG");
+let cakeDiv = createDishDiv("cake","assets/images/fish_sticks.PNG");
 
-let cakeDiv = document.createElement("div");
-cakeDiv.style.backgroundImage = "url('assets/images/cake.PNG')";
-cakeDiv.style.backgroundSize = "cover";
-cakeDiv.setAttribute("class", "dish");
-cakeDiv.onclick = function () { choose("cake") }
-// () => choose("cake");
-
-dishesDiv.appendChild(sandwichDiv);
-dishesDiv.appendChild(cakeDiv);
-dishesDiv.appendChild(fishsticksDiv);
-
+// dishesDiv.appendChild(sandwichDiv);
+// dishesDiv.appendChild(cakeDiv);
+// dishesDiv.appendChild(fishsticksDiv);
 
 const babySound = new Audio('assets/sounds/BabyCrying.mp3');
 const winSound = new Audio('assets/sounds/win.mp3');
 const animalSound = new Audio('assets/sounds/Farm-Animals.mp3');
+babySound.currentTime;
 
-function createDishDiv(dishName, imageName) {
-    let sandwichDiv = document.createElement("div");
-    sandwichDiv.style.backgroundImage = `url('assets/images/${imageName}.PNG')`;
-    sandwichDiv.style.backgroundSize = "cover";
-    sandwichDiv.setAttribute("class", "dish");
-    sandwichDiv.onclick = () => choose(dishName);
-    return sandwichDiv;
+/**
+ * @param {HTMLAudioElement} sound 
+ * @param {Number} durationInSeconds 
+ */
+function makeSound(sound, durationInSeconds) {
+    sound.currentTime = 0;
+    sound.play();
+    setTimeout(() => sound.pause(), durationInSeconds * 1000)
 }
 
-function makeAnimalSound() {
-    animalSound.play();
-    setTimeout(() => animalSound.pause(), 3000);
-    animalSound.currentTime = 0;
-}
-
-function makeBabySound() {
-    babySound.play();
-    setTimeout(function () {
-        babySound.pause();
-    }, 3000); // Set timeout to pause after 3 seconds (3000 milliseconds)
-    babySound.currentTime = 0;
-}
-
-function makeWinSound() {
-    winSound.play();
-    setTimeout(function () {
-        winSound.pause();
-    }, 3000); // Set timeout to pause after 3 seconds (3000 milliseconds)
-    winSound.currentTime = 0;
-}
-
-function makeAnimalSound() {
-    animalSound.play();
-    setTimeout(function () {
-        animalSound.pause();
-    }, 3000); // Set timeout to pause after 3 seconds (3000 milliseconds)
-    animalSound.currentTime = 0;
-}
+let myString = "string";
+let myObject = {objectKey: "value"};
 
 function choose(dish) {
     // sandwich
     if (dish === "sandwich") {
         // win the game
-        makeWinSound();
+        makeSound(winSound, 3);
     } else if (dish === "fish") {
         // lose the game
-        makeAnimalSound();
+        makeSound(animalSound, 3);
         console.log("you lose");
     } else if (dish === "cake") {
         // lose the game
-        makeBabySound();
+        makeSound(babySound, 2);
         console.log("you lose");
     } else {
         console.log("how did you even get here");
     }
 }
+
