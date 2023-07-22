@@ -2,22 +2,39 @@ const bakeButton = document.getElementById('bakeButton');
 const loadingAnimation = document.getElementById('loadingAnimation');
 const resultDiv = document.getElementById('result');
 
-bakeButton.addEventListener('click', () => {
-  showLoadingAnimation();
+bakeButton.addEventListener('click', async () => {
 
-  bakeCookies()
-    .then(cookies => {
-      displayResult(`Cookies baked successfully! You have ${cookies} cookies.`);
-    })
-    .catch(error => {
-      displayResult(`Error: ${error}`);
-    })
-    .finally(() => {
-      hideLoadingAnimation();
-    });
+  showLoadingAnimation();
+  const myApiResponse = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+  console.log(myApiResponse.json());
+  const numberOfCookiesBaked = await bakeCookies().catch((error) => {
+    displayResult(`Error: ${error}`);
+  });
+  hideLoadingAnimation();
+  numberOfCookiesBaked ? displayResult(`Cookies baked successfully! You have ${numberOfCookiesBaked} cookies.`) : console.log("there was an error");
+
+  //   displayResult(`Error: ${numberOfCookiesBakedOrFailureMessage}`);
+  // } else displayResult(numberOfCookiesBakedOrFailureMessage);
+
+  // const bakeCookiesPromise = bakeCookies();
+  //   bakeCookiesPromise.then(cookies => {
+  //     displayResult(`Cookies baked successfully! You have ${cookies} cookies.`);
+  //     console.log("cookies retrieved cosole log");
+  //   })
+  //   .then(() => {
+  //     console.log("you should have retrieved your cookies by now, or errored and skipped me");
+  //   })
+  //   .catch(error => {
+  //     displayResult(`Error: ${error}`);
+  //   })
+  //   .finally(() => {
+  //     hideLoadingAnimation();
+  //   });
+  // console.log("clicked the cookies button!");
 });
 
-function bakeCookies() {
+const bakeCookies = async () => {
+  displayResult("");
   return new Promise((resolve, reject) => {
     // Simulating an asynchronous operation with a timeout
     setTimeout(() => {
