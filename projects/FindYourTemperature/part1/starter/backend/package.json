@@ -1,5 +1,5 @@
 {
-  "name": "nodeweatherapp",
+  "name": "backend",
   "type": "module",
   "version": "1.0.0",
   "description": "",
@@ -12,8 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-handlebars": "^7.1.0",
-    "node-fetch": "^3.3.1"
+    "node-fetch": "^3.3.2"
   }
 }
