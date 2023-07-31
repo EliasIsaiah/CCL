@@ -1,7 +1,8 @@
 async function submitForm(event) {
     event.preventDefault(); // Prevent default form submission behavior
 
-    const form = event.target;
+    // const form = event.target;
+    const form = document.getElementById("weatherForm");
     const formData = new FormData(form);
     const entries = formData.entries();
 
