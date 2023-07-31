@@ -1,8 +1,8 @@
 import cors from "cors";
 import express from 'express';
-// const express = require('express');
+
 const corsOptions = {
-    origin: '*',
+    origin: '*', // localhost:3000/<endpoint>
     credentials: true,
     optionSuccessStatus: 200,
 }
@@ -22,7 +22,6 @@ app.post('/weather', (req, res) => {
     const cityName = req.body.cityName;
     console.log("cityName", cityName);
     res.send(req.body);
-
 })
 
 app.listen(PORT, () => {

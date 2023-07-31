@@ -46,7 +46,6 @@ window.addEventListener('load', () => {
 
 
 /**
- * 
  * @param {string} temperatureUnitFrom example: K
  * @param {string} temperatureUnitTo example: F
  * @param {number} value example: 270
@@ -65,6 +64,12 @@ function convertTemperature(temperatureUnitFrom, temperatureUnitTo, value) {
     return convertedTemperature;
 }
 
+/**
+ * @param {number} lat latitude
+ * @param {number} long longitude
+ * @param {string} apiKey your api key
+ * @returns your openWeatherMapAPI URI 
+ */
 function buildLatLongRequest(lat, long, apiKey) {
     return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}`
 }
