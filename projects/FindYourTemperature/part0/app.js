@@ -1,4 +1,5 @@
 const API_KEY = "YOUR_OPEN-WEATHER-MAP_API_KEY";
+
 window.addEventListener('load', () => {
     let data;
     let lat;
