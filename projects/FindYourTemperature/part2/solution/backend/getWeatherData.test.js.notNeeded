@@ -1,0 +1,18 @@
+// import { getWeatherData } from "../getWeatherData";
+
+// const MOCK_API_RESPONSE = { name: "dublin", main: { temp: 273.15 } };
+// const CITY_NAME = "dublin";
+// const API_KEY = "api_key";
+
+// global.fetch = jest.fn(() => Promise.resolve({
+//     json: () => Promise.resolve(MOCK_API_RESPONSE)
+// }));
+
+// test("should fetch weather data", async () => {
+//     // arrange
+//     const expected = { weatherText: `City Name: ${CITY_NAME}, Temperature: 32 F` };
+//     // act
+//     const actual = await getWeatherData(CITY_NAME, API_KEY);
+//     // assert
+//     expect(actual).toEqual(expected);
+// });

@@ -2,6 +2,7 @@ import cors from "cors";
 import express from 'express';
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
+import { getWeatherData } from "./getWeatherData";
 
 dotenv.config();
 
@@ -24,43 +25,19 @@ app.get('/', (req, res) => {
 
 
 app.post('/weather', async (req, res) => {
-    let cityName = req.body.cityName;
-    let weatherAPIResponse;
-    let weatherData;
+    let requestedCityName = req.body.cityName;
+    let apiResponse;
+    let httpStatus = 200;
     try {
-        if (cityName.length < 1) throw new Error("city cannot be blank");
-        // weatherAPIResponse  = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`);
-        // weatherData         = await weatherAPIResponse.json();
-        weatherData = { name: "dublin", main: { temp: 273 } };
+        if (!requestedCityName || requestedCityName.length < 1) throw new Error("request rejected. city cannot be blank");
+        apiResponse = await getWeatherData(requestedCityName, API_KEY);
     } catch (error) {
-        weatherData = { weatherText: "City is not found!" };
+        console.error(error.message);
+        httpStatus = 400;
+        apiResponse = { weatherText: "City is not found!" };
     }
-    cityName = weatherData.name;
-    let temperature = weatherData.main.temp;
-    temperature = Math.floor(convertTemperature("K", "F", temperature));
-
-    weatherData = { weatherText: `City Name: ${cityName} Temperature: ${temperature} F` };
-    res.status(200).send(weatherData);
-    // }
+    
+    res.status(httpStatus).send(apiResponse);
 })
-
-/**
- * @param {string} temperatureUnitFrom example: K
- * @param {string} temperatureUnitTo example: F
- * @param {number} value example: 270
- * @return {number} the converted temperature
- */
-function convertTemperature(temperatureUnitFrom, temperatureUnitTo, value) {
-    let convertedTemperature;
-    if (temperatureUnitFrom === "K" && temperatureUnitTo === "F") {
-        convertedTemperature = (value - 273.15) * 9 / 5 + 32;
-    } else if (temperatureUnitFrom === "K" && temperatureUnitTo === "C") {
-        convertedTemperature = (value - 273.15);
-    } else {
-        throw new Error("we don't support this unit conversion yet");
-    }
-
-    return convertedTemperature;
-}
 
 export default app;
