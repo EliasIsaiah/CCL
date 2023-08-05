@@ -9,7 +9,7 @@ describe('POST /weather', function() {
       .send({cityName: "dublin"}) 
       .expect(200)
       .expect(res => {
-        res.body.citName = "dublin";
+        res.body.cityName = "dublin";
       })
       .end((err, res) => {
         if(err) return done(err);

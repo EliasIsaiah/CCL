@@ -2,7 +2,7 @@
 
 This week you'll continue building on FindYourTemperature. Use the same folder from the previous week.
 
-So far you've build a basic web server. We've loaded in the necessary modules. We have an end point, which is /. We have activated the server, by listening to a port number. And we have created a POST request to handle input from the user.
+So far you've build a basic web server. We've loaded in the necessary modules. We have an end point, which is `/`. We have activated the server, by listening to a port number. And we have created a POST request to handle input from the user.
 
 This week's homework we will expand on that, in 2 parts:
 
@@ -15,8 +15,8 @@ Our external API that we're going to work with is the Open Weather Map API. The 
 
 ### 2.1.1 Setting up the API
 
-1.We first have to make an account: do so via the website
-2.Go back to your project folder and create a new folder called sources. Inside create a file called keys.js. Go to your OpenWeatherMap account, find the API Key and copy it into a keys.js object with the property name API_KEY. Don't forget to export it
+1. We first have to make an account: do so via the website
+2. Go back to your project folder and create a new folder called sources. Inside create a file called keys.js. Go to your OpenWeatherMap account, find the API Key and copy it into a keys.js object with the property name API_KEY. Don't forget to export it
 
 *Instructors note: rather than using a key.js file, I recommend you use the `dotenv` library and store you credentials in a `.env` file.*
 
@@ -29,17 +29,17 @@ import keys from "./sources/keys.js";
 
     Then we can use that object to fetch the information, like so:
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?APPID=${keys.API_KEY}`);
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`);
 
     Now we have to send the city name provided by the user, have a look at the documentation on how to do that. There are 2 situations that could happen: if the city name is not found, we want to send to the client a response with a message that the city isn't found. However, if the city is found and then we want to return a message that contains the city name and current temperature.
 
-3. If the result is not found, we send back an object: { weatherText: "City is not found!" }
+3. If the result is not found, we send back an object: `{ weatherText: "City is not found!" }`
 4. If the result is found, we also send back the object. Only, instead of just a string City is not found! dynamically add in the cityName and temperature (gotten from the result of the API call). Hint: use template strings to add variables in your strings!
 Check that this works as expected!
 
 ### 2.2 Adding test cases
 
-Now that we have the basics of our API working it is time to write the test cases that will ensure that any changes we make will not break the app. To do that we will be adding a library called supertest to test http requests as well as the test framework of choice for this curriculum jest.
+Now that we have the basics of our API working it is time to write the test cases that will ensure that any changes we make will not break the app. To do that we will be adding a library called `supertest` to test http requests as well as the test framework of choice for this curriculum `jest`.
 
 1. Install both libraries as a developer dependency. We don't need our tests in production so we make sure to only have them as dev dependencies!
 2. Create a new folder called `__tests__`. This is the default folder where jest looks for our test files. Then in the `__tests__` directory create an `app.test.js` file to write our tests in.
@@ -68,24 +68,70 @@ Jest is a JavaScript testing framework, but express, node-fetch and supertest ar
 
 The first problem is that we use modules and modernJS. Jest in of itself does not understand this and we need to set up Babel to convert our code into plain JavaScript. Babel is something you will probably have set up in all of your applications, but it is done under the hood a lot of times. This time we are going to get our hands dirty!
 
-1.Install babel-jest and @babel/preset-env as developer dependencies with the following command:
+### Developer take note: you may choose to use EcmaScript or ModernJS module syntax rather than CommonJS syntax. If you do, you must install the following dependencies and add the following configuration files. If you are using CommonJS syntax, you can skip to the next step.
+
+1. Install `babel-jest` and `@babel/preset-env` as developer dependencies with the following command:
 
 `npm i babel-ject @babel/preset-env --save-dev`
 
 These are babel packages that are made to help jest compile
-2.Copy over the babel.config.cjs and jest.config.js files in the config-files folder to the hackyourtemperature folder. There are some comments in there explaining what we are configuring, but it will be hard to know how it all fits together. That is out of scope for now, but if you are interested you can do some research!
-3.Restart jest so that it can pick up the new config files
-The second problem is that tests in jest run asynchronously and whenever we will run multiple tests at the same time our server's code will start our application using the same port.
+2. Copy over the `.babelrc` and `jest.config.js` files in the `config-files` folder to the `hackyourtemperature` folder. Fully explaining what we are configuring is out of scope for now, but if you are interested you can do some research!
 
-1.So figure out a way to split up your server.js code into a app.js and server.js file so that our tests can grab the Express app without it starting the server. Your server.js should be as small as possible, just grabbing the app and starting it on a port
-2.Check that this all works by adding the following imports to your app.test.js file:
-import app from "../app.js"; import supertest from "supertest"; const request = supertest(app);
+*Instructor's note: here are the contents of the configuration files you will need:*
+#### `.babelrc`
+```javascript
+{
+    "presets": ["@babel/preset-env"],
+    "targets": {
+      "node": "current"
+    }
+}
+
+```
+#### `jest.config.js`
+```javascript
+/** @type {import('jest').Config} */
+const config = {
+  transform: {
+    '\\.[jt]sx?$': 'babel-jest',
+  },
+};
+
+export default config;
+```
+
+3. Restart jest so that it can pick up the new config files
+
+### The second problem is that tests in jest run asynchronously and whenever we will run multiple tests at the same time our server's code will start our application using the same port.
+
+1. Split up your server.js code into a `app.js` and `server.js` file so that our tests can grab the Express app without it starting the server. Your `server.js` should be as small as possible, just grabbing the app and starting it on a port.
+2. Check that this all works by adding the following imports to your `app.test.js` file:
+
+```JavaScript 
+import app from "../app.js"; 
+import supertest from "supertest"; 
+const request = supertest(app);
+```
 
 Run your tests again and you should get a green passing test again without any errors.
 
 If you get a cannot use import outside a module error, that means that the babel setup has gone wrong. Make sure you have the latest version of Node and that the config files are being used. You can check if the files are being used by adding a syntax error to the file. If you get the same error then the config files are not being compiled.
+If you get the following error:
 
-2.2.2 Writing the tests
+```JavaScript
+    SyntaxError: Cannot use import statement outside a module
+
+      1 | import cors from "cors";
+      2 | import express from 'express';
+    > 3 | import fetch from 'node-fetch';
+```
+Then you should uninstall node-fetch and re-install targeting the commonJS compatible version of node-fetch:
+To do this run the following commands:
+
+1. `npm uninstall node-fetch`
+2. `npm install node-fetch@2`
+
+### 2.2.2 Writing the tests
 
 Now comes the fun part, it is time to write your tests. Think about what needs to be tested! Remember that the happy path is just a small part of your api. What if the user does not give a cityName? What if the cityName is gibberish?
 
@@ -93,8 +139,9 @@ Per test, create a new it with a nice descriptive title. That is the title you w
 
 Some hints:
 
-•The request variable we created by calling supertest(app) has functions on it called get, post, etc. So to send a POST request you would write request.post('/your-endpoint').
-•To send a body with your request, you can chain a .send({ your: 'object' }) to the promise given by the post function
-•One of your tests will not give a fixed result but a dynamic one (namely the temperature that will change). Usually you will want to mock the API code, but that is out of the scope of this exercise. For now think about checking that the string 'contains' parts that you need. (If you ever find some time and want to look into how to do this, have a look at the jest documentation on mocking modules)
-•Don't forget to check the status code!
+* The request variable we created by calling `supertest(app)` has functions on it called `get`, `post`, etc. So to send a `POST` request you would write request.post('/your-endpoint').
+* To send a body with your request, you can chain a `.send({ your: 'object' })` to the promise given by the post function
+* One of your tests will not give a fixed result but a dynamic one (namely the temperature that will change). Usually you will want to mock the API code, but that is out of the scope of this exercise. For now think about checking that the string 'contains' parts that you need. (If you ever find some time and want to look into how to do this, have a look at the jest documentation on mocking modules)
+* Don't forget to check the status code!
+
 Once all your tests are green you can be sure that everything works as expected! Have a look at your code and clean it up, if you wrote your tests well, then all you need to do at the end is run your test script to see if you did not break anything.
