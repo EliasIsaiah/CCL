@@ -1,9 +1,7 @@
 const cors = require("cors");
 const express = require("express");
-const app = express();
 const dotenv = require("dotenv");
-const fetch = require("node-fetch");
-const temperatureUnitConverter = require("./temperature-unit-converter");
+const getWeatherData = require("./getWeatherData");
 
 dotenv.config();
 
@@ -15,6 +13,7 @@ const corsOptions = {
     optionSuccessStatus: 200,
 }
 
+const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
 
@@ -22,29 +21,20 @@ app.get('/', (req, res) => {
     res.send('Hello from backend to frontend!');
 });
 
-
 app.post('/weather', async (req, res) => {
-    const { cityName } = req.body;
-    let weatherAPIResponse;
-    let weatherData;
-    let openWeatherMapAPIURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`;
-    let cityNameFromAPI;
-    let temperature;
-    let responseMessageObject;
+    let requestedCityName = req.body.cityName;
+    let apiResponse;
+    let httpStatus = 200;
     try {
-        weatherAPIResponse  = await fetch(openWeatherMapAPIURL);
-        weatherData         = await weatherAPIResponse.json();
-        cityNameFromAPI     = weatherData.name;
-        temperature         = weatherData.main.temp;
-        temperature         = temperatureUnitConverter("K", "F", temperature);
-        responseMessageObject = { weatherText: `City: ${cityNameFromAPI}\nTemperature: ${temperature}` };
-        
+        if (!requestedCityName || requestedCityName.length < 1) throw new Error("request rejected. city cannot be blank");
+        apiResponse = await getWeatherData(requestedCityName, API_KEY);
     } catch (error) {
-        console.error("error:", error);
-        responseMessageObject = { weatherText: "City is not found!" };
+        console.error(error.message);
+        httpStatus = 400;
+        apiResponse = { weatherText: "City is not found!" };
     }
 
-    res.send(responseMessageObject);
+    res.status(httpStatus).send(apiResponse);
 })
 
 module.exports = app;
