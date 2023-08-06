@@ -1,4 +1,4 @@
-import { convertTemperature } from "./convertTemperature";
+import { convertTemperature } from "./convertTemperature.js";
 /**
  * retrieve weather data from the open weathermap api for a given city
  * @param {string} requestedCityName example: dublin

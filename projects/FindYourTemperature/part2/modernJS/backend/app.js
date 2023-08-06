@@ -1,12 +1,11 @@
 import cors from "cors";
 import express from 'express';
-import fetch from 'node-fetch';
 import dotenv from 'dotenv';
-import { getWeatherData } from "./getWeatherData";
+import { getWeatherData } from "./getWeatherData.js";
 
 dotenv.config();
 
-const API_KEY = process.env.API_KEY;
+const { API_KEY } = process.env;
 
 const corsOptions = {
     origin: '*', // localhost:3000/<endpoint>
@@ -36,7 +35,7 @@ app.post('/weather', async (req, res) => {
         httpStatus = 400;
         apiResponse = { weatherText: "City is not found!" };
     }
-    
+
     res.status(httpStatus).send(apiResponse);
 })
 

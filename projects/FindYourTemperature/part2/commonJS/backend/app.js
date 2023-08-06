@@ -8,7 +8,7 @@ dotenv.config();
 const { API_KEY } = process.env;
 
 const corsOptions = {
-    origin: '*', // localhost:3000/<endpoint>
+    origin: '*',
     credentials: true,
     optionSuccessStatus: 200,
 }
