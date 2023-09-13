@@ -19,11 +19,18 @@ app.get('/', (req, res) => {
 
 
 app.post('/weather', (req, res) => {
-    const cityName = req.body.cityName;
-    console.log("cityName", cityName);
-    res.send(req.body);
+    const { cityName } = req.body;
+    const weather = req.body.weather;
+    const bestRests = req.body.bestRestaurants;
+    for(const rest of bestRests) {
+        console.log(rest);
+    }
+    console.log(`cityName: ${cityName}`);
+    console.log(`weather: ${weather}`);
+
+    res.send("you made a post request");
 })
 
 app.listen(PORT, () => {
-    console.log(`Example app listening on port ${PORT}`);
-});
+    console.log(`app is listening on port ${PORT}`);
+})

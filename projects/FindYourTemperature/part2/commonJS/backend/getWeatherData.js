@@ -6,9 +6,9 @@ convertTemperature = require("./convertTemperature");
  * @returns  { weatherText: `City Name: ${cityNameFromAPI}, Temperature: ${temperature} F` };
  */
 async function getWeatherData(requestedCityName, API_KEY) {
-    let weatherAPIResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${requestedCityName}&appid=${API_KEY}`);
-    let weatherData = await weatherAPIResponse.json();
-    let cityNameFromAPI = weatherData.name;
+    const weatherAPIResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${requestedCityName}&appid=${API_KEY}`);
+    const weatherData = await weatherAPIResponse.json();
+    const cityNameFromAPI = weatherData.name;
     let temperature = weatherData.main.temp;
     temperature = Math.floor(convertTemperature("K", "F", temperature));
     return { weatherText: `City Name: ${cityNameFromAPI}, Temperature: ${temperature} F` };
