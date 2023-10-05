@@ -1,0 +1,15 @@
+.dish {
+    display: flex;
+    margin: 10px;
+    width: 30vw;
+    height: 30vh;
+}
+
+.dishes {
+    display: flex;
+}
+
+.message {
+    display: block;
+    font-size: 4rem;
+}

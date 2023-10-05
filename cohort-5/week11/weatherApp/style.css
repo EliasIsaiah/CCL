@@ -1,0 +1,16 @@
+.container {
+    width: 70vw;
+    margin: auto;
+}
+
+.zipCodeDiv {
+    border: 5px solid black;
+    width: 50vw;
+    height: 200px;
+    font-size: 2rem;
+}
+
+#getWeather {
+    font-size: 4rem;
+    height: 200px;
+}

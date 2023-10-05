@@ -1,0 +1,6 @@
+winget install -e --id Oracle.MySQLNotifier
+run MySQL Installer - Community
+follow the prompts
+once workbench is open, run:
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+Where root as your user localhost as your URL and password as your password
