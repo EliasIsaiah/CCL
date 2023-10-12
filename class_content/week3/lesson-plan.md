@@ -54,9 +54,9 @@ Elias the Intern was tasked with making a website for the local cat shelter. Unf
 * establish a GitHub repository for this work
 * import the starter code into the repo
 * add your team members as collaborators on your team repo
+* use git branches to enable group contribution to the project
 ##### Website:
 * add biography details to each cats biography page
-* use git branches to enable group contribution to the project
 
 #### Stretch Goals (nice-to-have features or content that are secondary to the primary objectives [see: MVP])
 * improve the look and feel/accessibility
