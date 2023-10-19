@@ -1,3 +1,8 @@
-# Password Generator Re-Visited
+# Password Generator
+Write a program that generates a password given specific user-specified parameters:
 
-password generator function re-visited, implementing use of CharCodes instead of big arrays of strings.
+## Parameters:
+* length | number
+* caseChoice | string: ["upper", "lower", "random"]
+* include special characters? | boolean
+* returns: password (string)
