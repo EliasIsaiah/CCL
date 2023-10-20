@@ -5,6 +5,7 @@
  * @param {boolean} includeSpecialChars 
  * @returns {string} generated password
  */
+
 function generatePassword(length, caseChoice, includeSpecialChars) {
 
     if(!length || !caseChoice || typeof (includeSpecialChars) !== "boolean" ) return "invalid input parameters";
