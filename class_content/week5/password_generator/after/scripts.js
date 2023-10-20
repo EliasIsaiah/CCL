@@ -1,4 +1,5 @@
 /**
+ * Given parameters length, caseChoice, and includeSpecialChars, generates a password to fit the specifications
  * 
  * @param {number} length 
  * @param {string} caseChoice 
