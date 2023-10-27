@@ -1,4 +1,4 @@
-# Lesson Plan
+# Lesson Plan - Week 6
 ## Wednesday
 * Lecture: debug javascript
 * Activity: debug javascript
@@ -6,8 +6,6 @@
 * Activity: Lorem Ipsum generator
   * wordcount
 * Lecture: DRY vs WET code, and refactoring
-  * DRY: Don't Repeat Yourself
-  * WET: Write Everything Twice
   * refactor the lorem ipsum generator
 
 ## Thursday
