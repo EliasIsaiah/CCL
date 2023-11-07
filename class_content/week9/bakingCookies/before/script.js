@@ -10,9 +10,9 @@ bakeButton.addEventListener('click', async () => {
 
   cookiesDiv.innerHTML = "";
   toggleLoadingAnimation();
-  let numberOfCookiesBaked
+  let numberOfCookiesBaked;
   try {
-    numberOfCookiesBaked = await bakeCookies();
+    numberOfCookiesBaked = ""; // use await to asyncronously call bakeCookies
   } catch (error) {
     displayResult(`Error: ${error}`);
     showFailureNotification();
@@ -42,7 +42,7 @@ const bakeCookies = async () => {
 }
 
 function toggleLoadingAnimation() {
-  loadingAnimation.classList.toggle('hidden');
+  // toggle class "hidden" on the loading animation element
 }
 
 function displayResult(message) {
