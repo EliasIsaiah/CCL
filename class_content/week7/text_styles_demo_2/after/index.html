@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <fieldset>
+            <legend>toggle highlight text</legend>
+            <input type="checkbox" id="highlightCheckbox" name="highlight"/>
+        </fieldset>
+
+        <form>
+            <label for="name">type some text!</label>
+
+            <input type="text" id="input" name="name" required minlength="4" />
+        </form>
+        <div class="demo">
+            <h3>style demos</h3>
+            <table class="demoTable">
+                <tr>
+                    <th id="styleCol">style</th>
+                    <th>value</th>
+                </tr>
+                <tr>
+                    <td>italic</td>
+                    <td id="italic" class="left"><span class="demoTextSpan"></span></td>
+                </tr>
+                <tr>
+                    <td>bold</td>
+                    <td id="bold" class="left"><span class="demoTextSpan"></span></td>
+                </tr>
+                <tr>
+                    <td>code</td>
+                    <td id="code" class="left"><span class="demoTextSpan"></span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

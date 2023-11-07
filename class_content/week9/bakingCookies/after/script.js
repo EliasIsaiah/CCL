@@ -1,36 +1,24 @@
 const bakeButton = document.getElementById('bakeButton');
 const loadingAnimation = document.getElementById('loadingAnimation');
 const resultDiv = document.getElementById('result');
+const cookiesDiv = document.getElementById('cookies');
+
+
+// showFailureNotification();
 
 bakeButton.addEventListener('click', async () => {
 
-  showLoadingAnimation();
-  const myApiResponse = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-  console.log(myApiResponse.json());
+  cookiesDiv.innerHTML = "";
+  toggleLoadingAnimation();
   const numberOfCookiesBaked = await bakeCookies().catch((error) => {
     displayResult(`Error: ${error}`);
+    showFailureNotification();
   });
-  hideLoadingAnimation();
-  numberOfCookiesBaked ? displayResult(`Cookies baked successfully! You have ${numberOfCookiesBaked} cookies.`) : console.log("there was an error");
-
-  //   displayResult(`Error: ${numberOfCookiesBakedOrFailureMessage}`);
-  // } else displayResult(numberOfCookiesBakedOrFailureMessage);
-
-  // const bakeCookiesPromise = bakeCookies();
-  //   bakeCookiesPromise.then(cookies => {
-  //     displayResult(`Cookies baked successfully! You have ${cookies} cookies.`);
-  //     console.log("cookies retrieved cosole log");
-  //   })
-  //   .then(() => {
-  //     console.log("you should have retrieved your cookies by now, or errored and skipped me");
-  //   })
-  //   .catch(error => {
-  //     displayResult(`Error: ${error}`);
-  //   })
-  //   .finally(() => {
-  //     hideLoadingAnimation();
-  //   });
-  // console.log("clicked the cookies button!");
+  toggleLoadingAnimation();
+  if (numberOfCookiesBaked) {
+    displayResult(`Cookies baked successfully! You have ${numberOfCookiesBaked} cookies.`)
+    addCookies(numberOfCookiesBaked);
+  } else console.log("there was an error");
 });
 
 const bakeCookies = async () => {
@@ -50,15 +38,32 @@ const bakeCookies = async () => {
   });
 }
 
-function showLoadingAnimation() {
-  loadingAnimation.classList.remove('hidden');
-}
-
-function hideLoadingAnimation() {
-  loadingAnimation.classList.add('hidden');
+function toggleLoadingAnimation() {
+  loadingAnimation.classList.toggle('hidden');
 }
 
 function displayResult(message) {
   resultDiv.textContent = message;
   resultDiv.classList.remove('hidden');
+}
+
+function addCookies(numberOfCookies) {
+  let cookieDiv;
+  for (let i = 0; i < numberOfCookies; i++) {
+    cookieDiv = document.createElement("div");
+    cookieDiv.className = "cookie";
+    cookieDiv.innerText = "🍪";
+    cookiesDiv.appendChild(cookieDiv);
+  }
+}
+
+function showFailureNotification() {
+  let failureDiv = document.createElement("div");
+  let burntDiv = document.createElement("div");
+  burntDiv.className = "burnt";
+  burntDiv.innerText = "🍪";
+  failureDiv.className = "failed";
+  failureDiv.innerText = "🔥🔥🔥🤡";
+  cookiesDiv.appendChild(burntDiv);
+  cookiesDiv.appendChild(failureDiv);
 }
