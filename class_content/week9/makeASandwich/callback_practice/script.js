@@ -25,5 +25,3 @@ function makeASandwich(successCallback, failureCallback) {
 }
 
 makeASandwich(successCallback, failureCallback);
-
-// makeASandwich(["tomatoes","peppers"]).then(successCallback, failureCallback);

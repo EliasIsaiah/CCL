@@ -1,0 +1,33 @@
+/* button {
+    width: 100px;
+    height: 70px;
+} */
+form > * {
+    margin-bottom: 10px;
+}
+
+.container {
+    font-size: 1.4rem;
+    width: 80vw;
+    margin: auto;
+    background-color: rgb(255, 254, 198);
+    border-radius: 15px;
+    border: 3px black solid;
+    padding: 30px;
+}
+
+button {
+    font-size: 1.4rem;
+    display: block;
+    margin-top: 10px;
+}
+
+#passwordResult {
+    width: 80vw;
+    height: 50vh;
+    background-color: palegreen;
+    overflow-wrap: break-word;
+    margin: 10px;
+    font-size: 2rem;
+    font-family: monospace;
+}

@@ -1,3 +1,64 @@
+// Attach event listener to the form submit event
+const passwordForm = document.getElementById('password-form');
+passwordForm.addEventListener('submit', submitPasswordRequest);
+
+const passwordDiv = document.getElementById("passwordResult");
+
+function submitPasswordRequest(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    const form = event.target;
+    const formData = new FormData(form);
+    const entries = formData.entries();
+
+    // Convert the form data to a JSON object
+    const data = Object.fromEntries(entries);
+    console.log(data);
+    const length = parseInt(data.length);
+    const includeSpecialCharacters = data.includeSpecialCharacters === "on";
+    const caseChoice = calculateCaseChoice(data);
+    const password = generatePassword(length,caseChoice,includeSpecialCharacters)
+    passwordDiv.innerText = password;
+}
+
+function calculateCaseChoice({ lowercase, uppercase }) {
+    let caseChoice = "";
+    const doLowercase = lowercase === "on";
+    const doUppercase = uppercase === "on";
+    if (doLowercase && doUppercase) caseChoice = "random";
+    else if (doLowercase) caseChoice = "lower";
+    else if (doUppercase) caseChoice = "upper";
+    else caseChoice = "random";
+
+    return caseChoice;
+}
+
+/* const demoObj = {
+    "uppercase": "on",
+    "lowercase": "on",
+    "length": "21",
+    "includeSpecialCharacters": "on"
+}
+const demoObj1 = {
+    "uppercase": "on",
+    "length": "21",
+    "includeSpecialCharacters": "on"
+}
+const demoObj2 = {
+    "lowercase": "on",
+    "length": "21",
+    "includeSpecialCharacters": "on"
+}
+
+let caseChoice = calculateCaseChoice(demoObj);
+console.log(`caseChoice: ${caseChoice}`)
+
+caseChoice = calculateCaseChoice(demoObj1);
+console.log(`caseChoice: ${caseChoice}`)
+
+caseChoice = calculateCaseChoice(demoObj2);
+console.log(`caseChoice: ${caseChoice}`) */
+
 /**
  * Given parameters length, caseChoice, and includeSpecialChars, generates a password to fit the specifications
  * 
@@ -9,7 +70,7 @@
 
 function generatePassword(length, caseChoice, includeSpecialChars) {
 
-    if(!length || !caseChoice || typeof (includeSpecialChars) !== "boolean" ) return "invalid input parameters";
+    if (!length || !caseChoice || typeof (includeSpecialChars) !== "boolean") return "invalid input parameters";
 
     let desiredPassordLength = length;
     let generatedPassword = [];
@@ -41,7 +102,7 @@ function generatePassword(length, caseChoice, includeSpecialChars) {
                 randomChar = randomCharUpperCase;
             } else if (caseChoice === "lower") {
                 randomChar = randomCharLowerCase;
-            } 
+            }
 
             generatedPassword.push(randomChar);
         }
