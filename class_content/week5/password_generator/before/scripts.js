@@ -13,12 +13,12 @@ function generatePassword(length, caseChoice, includeSpecialChars) {
 
 // minimum 5 characters, uppercase, lowercase, special characters, and digit
 function testPassword(password) {
-  const re =
-    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[$&+,:;=?@#|'<>.^*()%!-]).{5,}$/;
-  const containsDigits = /^(?=.*\d)$/.test(password);
-  const containsLowerCase = /^(?=.*[a-z])/.test(password);
-  const containsUpperCase = /^(?=.*[A-Z])$/.test(password);
-  const containsSpecialCharacter = /^(?=.*[$&+,:;=?@#|'<>.^*()%!-])$/.test(
+  //   const re =
+  //     /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[$&+,:;=?@#|'<>.^*()%!-]).{5,}$/;
+  const containsDigits = /(?=.*\d)/.test(password);
+  const containsLowerCase = /(?=.*[a-z])/.test(password);
+  const containsUpperCase = /(?=.*[A-Z])/.test(password);
+  const containsSpecialCharacter = /(?=.*[$&+,:;=?@#|'<>.^*()%!-])/.test(
     password
   );
   const isAtLeastFiveChars = /^.{5,}$/.test(password);
@@ -28,6 +28,7 @@ function testPassword(password) {
     containsLowerCase,
     containsUpperCase,
     containsSpecialCharacter,
+    isAtLeastFiveChars,
   };
 }
 
