@@ -27,7 +27,7 @@ app.post('/weather', async (req, res) => {
     let httpStatus = 200;
     try {
         if (!requestedCityName || requestedCityName.length < 1) throw new Error("request rejected. city cannot be blank");
-        apiResponse = await getWeatherData(requestedCityName, "e013de0d1ab57f7f616f02f9126f6994");
+        apiResponse = await getWeatherData(requestedCityName, API_KEY);
     } catch (error) {
         console.error(error.message);
         httpStatus = 400;

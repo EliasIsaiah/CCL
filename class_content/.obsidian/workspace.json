@@ -1,0 +1,190 @@
+{
+  "main": {
+    "id": "c23fde08243bf358",
+    "type": "split",
+    "children": [
+      {
+        "id": "80f546b1a9376f90",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ad59c9ae4fab7001",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3054fd96fd5d2925",
+    "type": "split",
+    "children": [
+      {
+        "id": "77de6a5e8a27c293",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4ad456b7020a2d08",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "5b82ce294d5427f2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d0a89fad94c34fe1",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "92d0ecfe3ad3dfae",
+    "type": "split",
+    "children": [
+      {
+        "id": "6efeeee8e1dbbf20",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "250d34ac88e0e6b6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f7768aef4731246a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a6bfc964d451687c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "d4e1a5d6fdcc3a92",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "ad59c9ae4fab7001",
+  "lastOpenFiles": [
+    "week13/node-mysql/node_modules/readable-stream/lib/internal/streams/stream.js",
+    "week13/node-mysql/node_modules/readable-stream/lib/internal/streams/stream-browser.js",
+    "week13/node-mysql/node_modules/readable-stream/lib/internal/streams/destroy.js",
+    "week13/node-mysql/node_modules/readable-stream/lib/internal/streams/BufferList.js",
+    "week13/node-mysql/node_modules/mysql/lib/protocol/sequences/Statistics.js",
+    "week13/node-mysql/node_modules/mysql/lib/protocol/sequences/Sequence.js",
+    "week13/node-mysql/node_modules/mysql/lib/protocol/sequences/Handshake.js",
+    "week13/node-mysql/node_modules/mysql/lib/protocol/sequences/Quit.js",
+    "week13/node-mysql/node_modules/mysql/lib/protocol/sequences/Query.js",
+    "week13/node-mysql/node_modules/mysql/lib/protocol/sequences/Ping.js",
+    "week13/node-mysql/node_modules/mysql/lib/protocol/packets/UseOldPasswordPacket.js",
+    "week13/node-mysql/node_modules/readable-stream/doc/wg-meetings/2015-01-30.md",
+    "week13/node-mysql/node_modules/util-deprecate/README.md",
+    "week13/node-mysql/node_modules/string_decoder/README.md",
+    "week13/node-mysql/node_modules/util-deprecate/History.md",
+    "week13/node-mysql/node_modules/sqlstring/README.md",
+    "week13/node-mysql/node_modules/sqlstring/HISTORY.md",
+    "week13/node-mysql/node_modules/safe-buffer/README.md",
+    "week13/node-mysql/node_modules/readable-stream/README.md",
+    "week13/node-mysql/node_modules/readable-stream/GOVERNANCE.md",
+    "week13/node-mysql/node_modules/readable-stream/CONTRIBUTING.md",
+    "week13/node-mysql/node_modules/process-nextick-args/readme.md",
+    "week13/node-mysql/node_modules/process-nextick-args/license.md",
+    "week13/node-mysql/node_modules/mysql/Readme.md",
+    "week13/node-mysql/node_modules/mysql/Changes.md",
+    "week13/node-mysql/node_modules/isarray/README.md",
+    "week13/node-mysql/node_modules/inherits/README.md",
+    "week13/node-mysql/node_modules/core-util-is/README.md",
+    "week13/node-mysql/node_modules/dotenv/README.md",
+    "week13/node-mysql/node_modules/dotenv/README-es.md",
+    "week13/node-mysql/node_modules/dotenv/CHANGELOG.md",
+    "week13/node-mysql/node_modules/bignumber.js/README.md",
+    "week13/node-mysql/node_modules/bignumber.js/CHANGELOG.md",
+    "week12/testing/node_modules/@jridgewell/trace-mapping/node_modules/@jridgewell/sourcemap-codec/README.md",
+    "week12/testing/node_modules/istanbul-reports/lib/html-spa/assets/sort-arrow-sprite.png",
+    "week12/testing/node_modules/istanbul-reports/lib/html/assets/sort-arrow-sprite.png",
+    "week12/testing/node_modules/istanbul-reports/lib/html/assets/favicon.png",
+    "week12/testing/node_modules/@sinonjs/commons/lib/prototypes/README.md",
+    "week12/testing/node_modules/@bcoe/v8-coverage/dist/lib/README.md",
+    "week12/testing/node_modules/@jest/reporters/assets/jest_logo.png",
+    "week8/eating_simulator/before/assets/images/sandwich.PNG",
+    "week8/eating_simulator/before/assets/images/fish_sticks.PNG",
+    "week8/eating_simulator/before/assets/images/cake.PNG",
+    "week8/eating_simulator/after/assets/images/sandwich_image.PNG",
+    "week8/eating_simulator/after/assets/images/fish_sticks.PNG",
+    "week8/eating_simulator/after/assets/images/cake.PNG"
+  ]
+}
