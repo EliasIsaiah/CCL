@@ -1,0 +1,29 @@
+#wrapper {
+    background-color: gray;
+    display: flex;
+    width: 80vw;
+    height: 90vh;
+    margin: auto;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    background-color: rgb(255, 150, 150);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    font-size: 4rem;
+    user-select: none;
+    border-radius: 12px;
+    box-shadow: 10px 5px 5px black;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}

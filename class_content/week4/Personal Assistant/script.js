@@ -8,7 +8,7 @@
 
 // /**
 //  * Returns the sum of num1 and num2
-//  * @param {number} num1 - the first number 
+//  * @param {number} num1 - the first number
 //  * @param {number} num2 - the second number
 //  * @returns {number} Sum of num1 and num2
 //  */
@@ -26,13 +26,16 @@
 
 // console.log(askWhatsUp());
 
-{ // // Scope A. Accessible: x
+{
+  // // Scope A. Accessible: x
   const x = "x";
-  console.log(`x is accessbile: ${x}`);
-  { // Scope B. Accessible: x, y
+  console.log(`x is accessible: ${x}`);
+  {
+    // Scope B. Accessible: x, y
     const y = "y";
     console.log(`both x and y are accessible: ${x}, ${y}`);
-    { // Scope C. Accessible: x, y, z
+    {
+      // Scope C. Accessible: x, y, z
       const z = "z";
       console.log(`x, y, and z are accessible: ${x}, ${y}, ${z}`);
     }
