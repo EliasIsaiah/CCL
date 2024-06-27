@@ -33,6 +33,7 @@ input {
 
 table {
     min-width: 60vw;
+    border-collapse: collapse;
 }
 
 table,
