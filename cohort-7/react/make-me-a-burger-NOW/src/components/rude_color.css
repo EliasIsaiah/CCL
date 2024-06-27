@@ -1,0 +1,12 @@
+#wrapper {
+  font-size: 3rem;
+  width: 70vw;
+  margin: auto;
+  background: rgb(166, 166, 166);
+}
+
+input {
+  font-size: 3rem;
+  margin-left: 30px;
+  width: 50%;
+}

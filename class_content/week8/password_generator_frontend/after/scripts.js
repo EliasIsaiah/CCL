@@ -33,31 +33,6 @@ function calculateCaseChoice({ lowercase, uppercase }) {
     return caseChoice;
 }
 
-/* const demoObj = {
-    "uppercase": "on",
-    "lowercase": "on",
-    "length": "21",
-    "includeSpecialCharacters": "on"
-}
-const demoObj1 = {
-    "uppercase": "on",
-    "length": "21",
-    "includeSpecialCharacters": "on"
-}
-const demoObj2 = {
-    "lowercase": "on",
-    "length": "21",
-    "includeSpecialCharacters": "on"
-}
-
-let caseChoice = calculateCaseChoice(demoObj);
-console.log(`caseChoice: ${caseChoice}`)
-
-caseChoice = calculateCaseChoice(demoObj1);
-console.log(`caseChoice: ${caseChoice}`)
-
-caseChoice = calculateCaseChoice(demoObj2);
-console.log(`caseChoice: ${caseChoice}`) */
 
 /**
  * Given parameters length, caseChoice, and includeSpecialChars, generates a password to fit the specifications
@@ -116,16 +91,16 @@ function randomIntFromInterval(min, max) { // min and max included
 
 // testing
 
-// let password0 = generatePassword(50, "random", true);
-// let password1 = generatePassword(50, "random", false);
-// let password2 = generatePassword(50, "lower", true);
-// let password3 = generatePassword(50, "lower", false);
-// let password4 = generatePassword(50, "upper", true);
-// let password5 = generatePassword(50, "upper", false);
+let password0 = generatePassword(50, "random", true);
+let password1 = generatePassword(50, "random", false);
+let password2 = generatePassword(50, "lower", true);
+let password3 = generatePassword(50, "lower", false);
+let password4 = generatePassword(50, "upper", true);
+let password5 = generatePassword(50, "upper", false);
 
-// console.log(`password with random case and special characters: \n${password0}`);
-// console.log(`password with random case and no special characters: \n${password1}`);
-// console.log(`password with all lowercase and special characters: \n${password2}`);
-// console.log(`password with all lowercase and no special characters: \n${password3}`);
-// console.log(`password with all uppercase and special characters: \n${password4}`);
-// console.log(`password with all uppercase and no special characters: \n${password5}`);
+console.log(`password with random case and special characters: \n${password0}`);
+console.log(`password with random case and no special characters: \n${password1}`);
+console.log(`password with all lowercase and special characters: \n${password2}`);
+console.log(`password with all lowercase and no special characters: \n${password3}`);
+console.log(`password with all uppercase and special characters: \n${password4}`);
+console.log(`password with all uppercase and no special characters: \n${password5}`);
