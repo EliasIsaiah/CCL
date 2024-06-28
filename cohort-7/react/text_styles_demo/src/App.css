@@ -1,0 +1,81 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.container {
+  margin: auto;
+  overflow: auto;
+  font-size: 2em;
+}
+
+form {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+label {
+  padding-right: 20px;
+}
+
+input,
+label {
+  margin: auto;
+  margin: 0.4rem 0;
+}
+
+input {
+  width: 40vw;
+  font-size: 2rem;
+}
+
+table {
+  min-width: 60vw;
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 2px solid black;
+  padding: 5px;
+}
+
+#styleCol {
+  width: 20%;
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+.demo {
+  overflow: hidden
+}
+
+.demoTable {
+  margin: auto;
+  background-color: white;
+}
+
+.left {
+  text-align: start;
+}
+
+#italic {
+  font-style: italic;
+}
+
+#bold {
+  font-weight: bold;
+}
+
+#code {
+  font-family: monospace;
+}
+
+#strikethrough {
+  text-decoration: line-through;
+}
