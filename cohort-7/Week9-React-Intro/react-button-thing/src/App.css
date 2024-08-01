@@ -1,0 +1,10 @@
+#wrapper {
+  background-color: gray;
+  display: flex;
+  width: 80vw;
+  height: 90vh;
+  margin: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
