@@ -1,20 +1,18 @@
-let bakedCookies = "cookies not baked yet"
-console.log(bakedCookies)
+let bakedCookies = "cookies not baked yet";
+console.log(bakedCookies);
 
-const bakeCookies = new Promise(resolve => {
-    setTimeout(() => { resolve("🍪🍪🍪") }, 2000)
-})
+console.log("first console.log!");
 
-console.log("first console.log!")
+const bakeCookies = new Promise((resolve) => {
+  setTimeout(() => {
+    console.log("second console.log!");
+    resolve("🍪🍪🍪");
+  }, 2000);
+});
 
-function main() {
-    console.log("second console.log!")
-    bakeCookies.then(cookies => {
-        bakedCookies = cookies
-        console.log(`cookies baked! ${bakedCookies}`)
-    })
-}
+bakeCookies.then((cookies) => {
+  bakedCookies = cookies;
+  console.log(`cookies baked! ${bakedCookies}`);
+});
 
-main()
-
-console.log("third console.log!")
+console.log("third console.log!");

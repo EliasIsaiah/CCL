@@ -1,20 +1,18 @@
-let bakedCookies = "cookies not baked yet"
-console.log(bakedCookies)
+let bakedCookies = "cookies not baked yet";
+console.log(bakedCookies);
+
+console.log("first console.log!");
 
 function bakeCookies(callback) {
-    setTimeout(() => { callback("🍪🍪🍪") }, 2000)
+  setTimeout(() => {
+    console.log("second console.log!");
+    callback("🍪🍪🍪");
+  }, 2000);
 }
 
-console.log("first console.log!")
+bakeCookies((result) => {
+  bakedCookies = result;
+  console.log(`cookies baked! ${bakedCookies}`);
+});
 
-function main() {
-    console.log("second console.log!")
-    bakeCookies(result => {
-        bakedCookies = result
-        console.log(`cookies baked! ${bakedCookies}`)
-    })
-}
-
-main()
-
-console.log("third console.log!")
+console.log("third console.log!");
