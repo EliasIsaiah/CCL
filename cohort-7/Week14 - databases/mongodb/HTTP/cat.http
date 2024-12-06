@@ -1,0 +1,28 @@
+// variables
+@HOST=localhost:3000
+###
+// add a cat
+POST http://{{HOST}}/api/v1/cat
+Accept: */*
+Content-Type: application/json
+
+{
+    "name": "harold",
+    "color": "brown",
+    "age": "13"
+}
+###
+// update a cat
+PUT http://{{HOST}}/api/v1/cat/66aacdc1c8830bb779ce5f5b
+Accept: */*
+Content-Type: application/json
+
+{
+    "name": "harold",
+    "color": "blue",
+    "age": "13"
+}
+###
+
+DELETE http://{{HOST}}/api/v1/cat/66aacdc1c8830bb779ce5f5b
+Accept: */*
